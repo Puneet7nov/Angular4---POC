@@ -1,0 +1,131 @@
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<section>
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-0 col-md-offset-0">
+      <h2>Server performance</h2>
+      <h3>Hardware configuration</h3>
+      <p>The following table shows the hardware details of the servers used to host the ION Platform. In particular, the table
+        shows: </p>
+      <li>The SPEC rate metrics SPECint Rate per Core (RpC) measure the throughput or rate of a machine carrying out a number
+        of tasks. The source is <a href="http://www.specbench.org">www.specbench.org</a> and uses the SPECint Rates 2006
+        benchmarks.
+      </li>
+      <li>The Single Task Performance (STP) is based on the SPECint_06 CPU speed metrics, used for comparing the ability of a
+        computer to process single threads.</li>
+      <li>The reference CPUs are used to normalize CPU usage and to compare performance across various types of servers.</li>
+      <li>The K-factor expresses the single-core throughput ratio calculated between the reference CPU and the actual CPU of
+        each server. It is based on the SPECint Rates 2006 benchmarks.</li>
+      <br>
+      <span class="col-xs-30 col-sm-30 col-md-00 col-sm-offset-0 col-md-offset-0">
+        <img *ngIf="showHWtable" src="../../assets/tables/hardware_info/hw_table.png" alt="" class="img-responive" style="max-height: 1000px;">
+      </span>
+      <p *ngIf="showHWtable"><b>Notes:</b>ION did not receive complete hardware specifications for some servers. Missing information is highlighted
+        in red in the table.</p>
+      <div class="button btn btn-primary col-md-offset-10" (click)=ShowHideHWtable()>Show Hide Table</div>
+      <h4>Server with no DS</h4>
+      <p>The following servers on the HSBC Platform do not host any DS, but only custom components:</p>
+      <li>128.161.28.10</li>
+      <li>161.3.56.65</li>
+      <li>161.2.197.251</li>
+      <li>161.3.50.64</li>
+      <li>161.3.70.211</li>
+      <!--
+        <li>161.3.50.64</li>
+      <li>161.3.70.211</li>
+        -->
+      <p>HSBC should configure a DS on these servers to manage the components and allow easier monitoring of the performance
+        of the servers using ION-standard components. These servers are not included in the sections that follow.</p>
+      <h4>Backup Server</h4>
+      <p>According to the daemon configuration files provided by HSBC, servers marked with (*) in the spreadsheet are used mainly
+        to host backup instances of components. These servers are not included in the server load analysis. HSBC should ensure
+        that if there are failures, the servers dedicated to the backup instances of ION components have sufficient spare
+        capacity to execute the processes.</p>
+      <h4>Hyper-threading</h4>
+      <p>In the preceding table, the servers highlighted in amber have HT enabled. HT increases the number of logical cores
+        available on a server. However, all the tests conducted on ION software showed that HT does not provide any performance
+        benefit and in fact reduces the accuracy of the reported CPU load statistics of servers and components. HT also increases
+        the computational jitter. Therefore, it is not recommended for low-latency configurations.</p>
+      <h4>Power-saving configuration</h4>
+      <p>HSBC should verify whether any type of power-saving option (both at OS and BIOS level) is enabled on the servers used
+        to host ION components. Recent tests performed by ION show that ION components perform better when power-saving features
+        are disabled on the servers.</p>
+      <p>Therefore, ION recommends that HSBC verify the following configurations on all the servers:</p>
+      <li>At the OS level, both C-State and P-State features should be disabled.</li>
+      <li>At the BIOS level, the power management should be set to the maximum performance mode.</li>
+      <p></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-0 col-md-offset-0">
+      <hr>
+      <h3>Server CPU load</h3>
+      <p>The following table shows total and ION CPU loads of the servers hosting ION components, as recorded during the observation
+        period, where:</p>
+      <li><b>Total server load</b></li>
+      <ul>The total CPU load values are relative to all processes running on the servers whether they register to the ION Platform
+        or not. These statistics are reported by the daemons hosted on these servers.</ul>
+      <li><b>ION server load</b></li>
+      <ul>load refers to the load of the processes that register to the ION Platform as extracted from the Monitor log. The statistics
+        in the following table are the sum of CPU loads of the individual components on each server.</ul>
+      <p>For every server, the following table shows:</p>
+      <li>The maximum CPU average in the 1-minute, 10-minute, and 1-hour time intervals</li>
+      <li>The daily average CPU usage</li>
+      <span class="col-md-12 col-sm-offset-0 col-md-offset-0">
+        <img src="../../assets/tables/server_cpu/server_cpu.png" alt="" class="img-responive" style="max-height: 150px;">
+      </span>
+      <p>The preceding table shows the server that reported high CPU usage during the observation period that breaches
+        <button type="button" style="border:none;padding:0;text-align:center;font-family:Source Code Pro" class="btn btn-default btn-secondary"
+          popoverTitle="Server Health Status" popover="Green - Correct behaviour; Amber - First level of warning; Red - Urgent Analysis Required"
+          placement="right">ION defined thresholds</button>.</p>
+      <p (click)="myFunction()">The complete list of servers and their CPU load is reported in the Servers CPU Load tab of the
+        <u>spreadsheet delivered with this document</u>.</p>
+      <p>Some of the servers hosting the HSBC Platform have HT enabled. Because this setting affects the accuracy of the CPU
+        load readings, the values reported in the spreadsheet may not reflect the real CPU utilization on the servers. When
+        HT is enabled, the CPU usage of a process, as reported by the OS, could be double that the real utilization. In the
+        worst-case scenario, the values in the spreadsheet should be multiplied by two.</p>
+      <p>The following section provides an overview of the analysis for the server reported in the preceding table and breaching
+        ION thresholds..</p>
+        <p> Theoi msmmsknns jksjksjk</p>
+
+      <!-- The text above is a standard.        Start your changes from below   
+        -->
+      <h4><em> [[ Server Name ]]</em> </h4>
+
+      
+
+The Total CPU load and the CPU load due to the ION components on the servers are low. Further analysis is not required.
+[[Client Name]] has correctly dedicated the server <em> [[Server Name]]</em>> to the PXE component. Further analysis is not required.
+<!-- 
+The following graphs provide a comparison between the total and ION CPU load for servers <em>name1 </em>name1, <em>name2 </em>, <em>name3 </em>:
+<img src="../../assets/tables/server_cpu/server_cpu.png" alt="" class="img-responive" style="max-height: 150px;">
+      </span>
+
+      The preceding graphs confirms that the CPU load of these servers is due mainly to ION processes running on them.  
+ION observed that most of the load is due to the following ION components:
+<img src="../../assets/tables/server_cpu/server_cpu.png" alt="" class="img-responive" style="max-height: 150px;">
+      </span>
+ION recommends that {{commonText.CutomerName}} redistribute the components listed above on servers offering a higher spare capacity.
+-->
+    </div>
+  </div>
+
+
+  <!-- The text Below is a standard.      No changes required below   
+        -->
+</section>
+<br>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-md-12 col-sm-offset-0 col-md-offset-0">
+    <div class="form-group">
+      <label for="server_performance">Ask question regarding Server Performance:</label>
+      <textarea name="Text1" cols="120" rows="8" id="server_perf"></textarea>
+    </div>
+    <div class="row col-md-offset-0">
+      <button class="btn btn-primary" type="submit"> Send Query <i class="fa fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+<br>

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4 col-md-3">
+    <div class="list-group">
+      <a routerLinkActive="active"
+        [routerLink]="['/referenceDoc', referencedocTab.name]"
+        class="list-group-item"
+        *ngFor="let referencedocTab of referenceDocTabs">
+        {{ referencedocTab.name }}
+      </a>
+    </div>
+  </div>
+
+<section>
+  <div class="container">
+    <div class="col-xs-12 col-sm-7 col-md-9">
+    <h1>Reference Data</h1>
+    <p>This section list the complete data table for this platform.....blah blah</p>
+
+    <p>ION Consulting Services are available to help planning and deploying all recommended modifications contained in this report.</p>
+  </div>
+  </div>
+</section>
+
+    <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

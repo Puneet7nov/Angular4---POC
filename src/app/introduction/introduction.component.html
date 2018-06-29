@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-3">
+    <div class="list-group">
+      <a routerLinkActive="active"
+        [routerLink]="['/IntroductionComponent', introductiontab.name]"
+        class="list-group-item"
+        *ngFor="let introductiontab of introductionTabs">
+        {{ introductiontab.name }}
+      </a>
+    </div>
+  </div>
+
+<section>
+  <div class="container">
+    <div class="col-xs-12 col-sm-9">
+    <h1>Introduction</h1>
+    <p>This document is part of the Performance and Architecture Review for the ION USD Bonds sub-Platform installed at HSBC in London (Global Rates Platform).</p>
+    <p>This Platform Review identifies possible inefficiencies and proposes actions to be taken to optimize the configuration.</p>
+    <p>ION Consulting will follow up for the planning and implementation of the recommendations provided in this document.</p>
+    <p>This analysis has been done for the following criteria:</p>
+    <li>Platform topology</li>
+    <li>Failover configuration</li>
+    <li>Server and component performance</li>
+    <li>Routing infrastructure performance</li>
+    <p>The previous review was conducted in June 2016. Where appropriate, references have been provided to observations and recommendations made during the previous review.</p>
+  </div>
+  </div>
+</section>
+
+  <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<nav class="navbar navbar-deafault">
+  <div class="container">
+    <div class="row col-md-12">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <h2>Platform Performance and Architecture Review</h2>
+        </a>
+      </div>
+    </div>
+    <div class="row col-md-12">
+      <div>
+        <a *ngFor="let commontext of commonText">
+          <h3>{{ commontext.customer_name }} {{ commontext.cust_location }}</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

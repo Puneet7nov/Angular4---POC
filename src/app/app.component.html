@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-0 col-md-offset-0">
+      <ul class="nav nav-tabs">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> 
+          <a routerLink="/">Introduction</a>
+        </li>
+        <li role="presentation" routerLinkActive="active"> 
+          <a routerLink="/execSummary">Executive Summary</a>
+        </li>
+        <li role="presentation">
+          <a>Key Action Points</a>
+        </li>
+        <li role="presentation" routerLinkActive="active"> 
+          <a routerLink="/analysisRecommendation">Analysis and Recommendations</a>
+        </li>
+        <li role="presentation" routerLinkActive="active"> 
+          <a routerLink="/referenceDoc">Reference Documents</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+ <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-12 col-sm-offset-1 col-md-offset-0">
+      <router-outlet></router-outlet> 
+    </div> 
+  </div>
+</div>
